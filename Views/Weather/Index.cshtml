@@ -1,0 +1,20 @@
+@model WeatherForecastDotnet5WithPayload.Models.WeatherViewModel
+
+<h2>Weather Forecast for the next 2hrs</h2>
+
+<form method="get">
+    <select name="selectedArea" onchange="this.form.submit()">
+        <option value="">-- Select an area --</option>
+        @foreach (var area in Model.Areas)
+        {
+            <option value="@area" @(area == Model.SelectedArea ? "selected" : "")>@area</option>
+        }
+    </select>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.SelectedForecast))
+{
+    <div style="margin-top:20px; padding:10px; border:1px solid #ccc; margin-top:20px;">
+        <strong>@Model.SelectedArea:</strong> @Model.SelectedForecast
+    </div>
+}
