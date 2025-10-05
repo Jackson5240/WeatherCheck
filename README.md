@@ -53,7 +53,7 @@ git clone https://github.com/Jackson5240/WeatherCheck.git
 1) Open Powershell (Recommended to run as Administrator) and run the following command
 
 ```
-## Go to the root folder of the project (**WeatherCheck** or **WeatherCheck-main**)
+## Go to the root folder of the project ( WeatherCheck or WeatherCheck-main )
 cd <root folder>
 
 ## Run script
