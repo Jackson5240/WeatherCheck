@@ -26,6 +26,8 @@ This README has a clickable **Table of Contents**, section headers.
 
 3) Recommeded to run in **Windows** Environment for this Project
 
+4) Chrome Browser is installed
+
 ## Download Project From Git Repo Link
 
 #### GitHub Repositiory (Option 1)
@@ -63,9 +65,6 @@ cd <root folder>
  - dotnet clean
  - dotnet build
  - Start-Process -FilePath "dotnet" -ArgumentList "run --project .\WeatherForecastProj.csproj"
-
-![Alt text](images/run_app_background.png)
-
  - Launch the Application from Chrome
 
 ![Alt text](images/app_launched_in_chrome.png)
