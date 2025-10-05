@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace WeatherForecastDotnet5WithPayload
+namespace WeatherForecastProj
 {
     public class Program
     {

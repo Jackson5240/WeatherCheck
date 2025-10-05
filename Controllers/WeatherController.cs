@@ -1,11 +1,11 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using WeatherForecastDotnet5WithPayload.Services;
-using WeatherForecastDotnet5WithPayload.Models;
+using WeatherForecastProj.Models;
+using WeatherForecastProj.Services;
 
-namespace WeatherForecastDotnet5WithPayload.Controllers
+namespace WeatherForecastProj.Controllers
 {
     public class WeatherController : Controller
     {
@@ -19,23 +19,17 @@ namespace WeatherForecastDotnet5WithPayload.Controllers
         public async Task<IActionResult> Index(string selectedArea)
         {
             var forecasts = await _service.GetWeatherAsync();
-            Console.WriteLine($"SelectedArea = '{selectedArea}'");
-            foreach (var f in forecasts)
-            {
-                Console.WriteLine($"Forecast.Area = '{f.Area}'");
-                Console.WriteLine($"Forecast.ForecastText = '{f.ForecastText}'");
-            }
+            var lastUpdated = await _service.GetLastUpdatedAsync();
 
             var model = new WeatherViewModel
             {
                 Areas = forecasts.Select(f => f.Area).ToList(),
                 SelectedArea = selectedArea,
-                //SelectedForecast = forecasts.FirstOrDefault(f => f.Area == selectedArea)?.ForecastText
-                //SelectedForecast = forecasts.FirstOrDefault(f => f.Area.Equals(selectedArea, System.StringComparison.OrdinalIgnoreCase))?.ForecastText
-                SelectedForecast = forecasts.FirstOrDefault(f => f.Area.Trim().Equals(selectedArea?.Trim(), System.StringComparison.OrdinalIgnoreCase))?.ForecastText
+                SelectedForecast = forecasts
+                    .FirstOrDefault(f => f.Area.Equals(selectedArea ?? "", StringComparison.OrdinalIgnoreCase))
+                    ?.ForecastText,
+                LastUpdated = lastUpdated
             };
-
-            
 
             return View(model);
         }
