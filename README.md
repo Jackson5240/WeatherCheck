@@ -13,7 +13,6 @@ This README has a clickable **Table of Contents**, section headers.
 - [Prerequisite](#prerequisite)
 - [Download Project From Git Repo Link](#download-project-from-git-repo-link)
 - [Deploying Application Locally](#deploying-application-locally)
-- [Application Overview](#application-overview)
 - [Demo & Walkthrough](#demo--walkthrough)
 
 ---
