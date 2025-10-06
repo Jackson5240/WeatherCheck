@@ -64,7 +64,7 @@ cd <root folder>
 ###### Script logic flows for runapp.ps1
  - dotnet clean
  - dotnet build
- - Start-Process -FilePath "dotnet" -ArgumentList "run --project .\WeatherForecastProj.csproj"
+ - Run the application on the background
  - Launch the Application from Chrome
 
 ![Alt text](images/app_launched_in_chrome.png)
