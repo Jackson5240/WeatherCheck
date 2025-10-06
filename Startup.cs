@@ -6,17 +6,31 @@ using Microsoft.Extensions.Hosting;
 
 namespace WeatherForecastProj
 {
+    // ------------------------------------------------------------
+    // The Startup class configures the application's services
+    // and defines the middleware pipeline for handling HTTP requests.
+    // It’s called automatically by the ASP.NET Core runtime.
+    // ------------------------------------------------------------
     public class Startup
     {
+        // The constructor receives configuration settings (from appsettings.json, env vars, etc.)
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        // Exposes the app’s configuration for use elsewhere if needed.
         public IConfiguration Configuration { get; }
 
+        // ------------------------------------------------------------
+        // ConfigureServices() is called by the runtime at startup.
+        // This is where you register services for dependency injection (DI),
+        // such as controllers, Razor views, database contexts, and custom logic.
+        // ------------------------------------------------------------
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add MVC controllers and Razor view support.
+            // This enables controller classes to return View() results.
             services.AddControllersWithViews();
             services.AddHttpClient<Services.WeatherService>();
         }
@@ -25,23 +39,27 @@ namespace WeatherForecastProj
         {
             if (env.IsDevelopment())
             {
+                // Show detailed error pages for easier debugging during development.
                 app.UseDeveloperExceptionPage();
             }
             else
             {
+                // For now, this is not handled
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //Looks for a wwwroot folder in your project root
             app.UseStaticFiles();
 
+            // Enable routing
             app.UseRouting();
 
-            app.UseAuthorization();
-
+            // Define endpoint routing for MVC controllers.
             app.UseEndpoints(endpoints =>
             {
+                // Default route:
+                // When no controller/action is specified, go to UENInputController.Index().
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Weather}/{action=Index}/{id?}");
