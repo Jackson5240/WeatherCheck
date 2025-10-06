@@ -45,8 +45,8 @@ namespace WeatherForecastProj
             else
             {
                 // For now, this is not handled
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
+                // app.UseExceptionHandler("/Home/Error");
+                // app.UseHsts();
             }
 
             //Looks for a wwwroot folder in your project root
