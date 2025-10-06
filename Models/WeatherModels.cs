@@ -13,6 +13,8 @@ namespace WeatherForecastProj.Models
     {
         public string Name { get; set; }
 
+        /// The geographic label location for the area, mapped from
+        /// the JSON property 'label_location'.
         [JsonPropertyName("label_location")]
         public LabelLocation Label_Location { get; set; }
     }
@@ -22,6 +24,7 @@ namespace WeatherForecastProj.Models
         [JsonPropertyName("area")]
         public string Area { get; set; }
 
+        /// Mapped from the JSON property 'forecast'.
         [JsonPropertyName("forecast")]
         public string ForecastText { get; set; }
     }
