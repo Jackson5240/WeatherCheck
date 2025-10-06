@@ -61,7 +61,7 @@ cd <root folder>
 ## Run script
 .\runapp.ps1
 ```
-###### Script logic flows
+###### Script logic flows for runapp.ps1
  - dotnet clean
  - dotnet build
  - Start-Process -FilePath "dotnet" -ArgumentList "run --project .\WeatherForecastProj.csproj"
@@ -74,8 +74,8 @@ cd <root folder>
 1) Open Powershell (Recommended to run as Administrator) and run the following command
 
 ```
-## Go to the root folder of the project
-cd WeatherCheck
+## Go to the root folder of the project ( WeatherCheck or WeatherCheck-main )
+cd <root folder>
 
 ## Clean Solution
 dotnet clean
